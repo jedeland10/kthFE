@@ -1,0 +1,6 @@
+.sidebar {
+    background-color: lightblue;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}

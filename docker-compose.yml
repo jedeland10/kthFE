@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: social-network-fe-c
+    image: social-network-fe-i
+    build:
+      context: .
+    ports:
+      - "3000:80"
+      - "3001:80"
+
+  nginx:
+    build:
+      dockerfile: ./nginx/Dockerfile
+    restart: always
+    ports:
+      - "9000:80"

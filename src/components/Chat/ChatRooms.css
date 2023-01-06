@@ -1,0 +1,27 @@
+.chatRoomContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+    border-bottom: solid 1px darkgrey;
+    border-radius: 5px;
+}
+
+.messageForm {
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    margin-top:auto;
+}
+
+.message-container {
+    background-color: darkgrey;
+    border-radius: 2px;
+}
+
+.container {
+    flex-direction: row;
+    display:flex;
+    justify-content:space-between;
+}
+
