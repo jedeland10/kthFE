@@ -24,11 +24,12 @@ export default function RegisterUser() {
                 lastName: lastName,
                 password: password
             }
-            userApi.createUser(newUser).then(createdUser => {
-                userService.loginUser({
+            userApi.createUser(newUser).then(async createdUser => {
+                await userService.loginUser({
                     username: createdUser.username,
                     password: password
-                }).then(navigate('/'))
+                })
+                navigate("/");
             })
 
         }

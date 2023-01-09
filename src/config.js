@@ -1,9 +1,9 @@
 const prod = {
-    userApi: "http://api1.data5.dev.kthcloud.com",
-    chatApi: "http://api2.data5.dev.kthcloud.com",
-    feedApi: "http://api3.data5.dev.kthcloud.com",
-    whiteboardApi: "http://api4.data5.dev.kthcloud.com",
-    diagramApi: "http://api5.data5.dev.kthcloud.com"
+    userApi: "https://api1.data5.dev.kthcloud.com",
+    chatApi: "https://api2.data5.dev.kthcloud.com",
+    feedApi: "https://api3.data5.dev.kthcloud.com",
+    whiteboardApi: "https://api4.data5.dev.kthcloud.com",
+    diagramApi: "https://api5.data5.dev.kthcloud.com"
 }
 
 const dev =  {

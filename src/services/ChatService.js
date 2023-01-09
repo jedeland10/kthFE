@@ -1,14 +1,17 @@
 import UserService from "./UserService";
+import config from "../config";
 
 export const ChatService = (function() {
     let instance = null;
     let Stomp = require('stompjs');
     let SockJS = require('sockjs-client');
 
+    let socketUrl = config.chatApi+"/ws"
+
     function createInstance(token, onReceive, chatRoomId) {
         if(instance === null) {
             instance = {
-                sock: new SockJS("http://localhost:8081/ws?token=" + token),
+                sock: new SockJS(socketUrl+"?token="+token),
                 stompClient: null,
                 onReceive: onReceive,
                 chatRoomId: chatRoomId,
@@ -42,6 +45,7 @@ export const ChatService = (function() {
             instance = null
         },
         sendMessage: function (message) {
+            console.log(instance)
             instance.stompClient.send("/app/socket", {"Authorization": 'Bearer ' + instance.token}, message)
         }
     }

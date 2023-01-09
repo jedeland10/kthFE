@@ -173,6 +173,18 @@ export function ChatRooms() {
             messageType: 'DATA'
         }))
     }
+    const handleSearch = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        if (event.target.value.length > 0) {
+            userApi.searchUsers(event.target.value)
+                .then(resp => {
+                    setUsers(resp ?? [])
+                })
+        } else {
+            setUsers([]);
+        }
+    }
 
     const searchUser = async (event) => {
         event.preventDefault();
@@ -280,7 +292,7 @@ export function ChatRooms() {
                 style={{height:'100%', flexDirection:'row'}}
                 title={'Chat room'}
                 placement="right"
-                size={'medium'}
+                size={'large'}
                 onClose={chatRoomId ? onClose : closeNewChat}
                 open={open}
                 extra={
@@ -308,8 +320,20 @@ export function ChatRooms() {
                         <Modal title="Add users" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
                             <div className={'container'}>
                                 <div>
-                                    <input type={'text'} placeholder={'Search for user'} id={'searchString'} onChange={searchUser}/>
-                                    {users.map((user) => <div className={'container'}>{user.firstName} {user.lastName}<PlusOutlined onClick={() => addParticipant(user)}/></div>)}
+                                    <input type={'text'} placeholder={'Search for user'} id={'searchString'} onChange={handleSearch}/>
+                                    {
+                                        users.map((user) => {
+                                            let row;
+                                            if(user.id !== userService.getUserId()) {
+                                                row = (
+                                                    <div className={'user-container'}>
+                                                        {user.firstName} {user.lastName}
+                                                        <PlusOutlined onClick={() => addParticipant(user)}/>
+                                                    </div>)
+                                            }
+                                            return (row)
+                                        })
+                                    }
                                 </div>
                                 <div>
                                     <Table columns={columns} dataSource={participants}/>

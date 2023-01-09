@@ -10,11 +10,12 @@ function SearchInput(props) {
     const [value, setValue] = useState();
     const navigate = useNavigate();
 
-
     const handleSearch = (newValue) => {
         if (newValue) {
             userApi.searchUsers(newValue)
-                .then(resp => setData(resp ?? []))
+                .then(resp => {
+                    setData(resp ?? [])
+                })
         } else {
             setData([]);
         }

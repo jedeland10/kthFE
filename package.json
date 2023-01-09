@@ -38,7 +38,8 @@
     "start": "REACT_APP_CONTEXT=dev react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "REACT_APP_CONTEXT=production npm run build",
+
+    "deploy": "REACT_APP_CONTEXT=production react-scripts start",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

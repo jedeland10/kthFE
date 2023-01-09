@@ -37,6 +37,7 @@ function UserService() {
                     if (token === null) return
 
                     const decodedToken = JSON.parse(jwt_decode(token).sub)
+
                     setCookie('user',{
                         token: token,
                         username: decodedToken.username,

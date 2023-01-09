@@ -18,10 +18,15 @@ export default function Header() {
 
     }, [userService.isLoggedIn()]);
 
+    const goToUserProfile = (selected) => {
+        navigate('/user/' + selected.id);
+    }
+
     return (
         <div className={'root'}>
             <SearchInput
                 placeholder="Search for users"
+                handleSelect={goToUserProfile}
                 style={{
                     width: 200,
                 }}
